@@ -35,7 +35,7 @@ function Signup() {
       || passwordRef?.current === undefined
       || passwordRef.current.value === ""
       || passwordConfirmationRef?.current === undefined
-      || passwordConfirmationRef.current.value === "") {
+          || passwordConfirmationRef.current.value === "") {
       return setErrors(["Please fill out all fields"])
     }
     if (passwordRef.current.value !== passwordConfirmationRef.current.value) {
