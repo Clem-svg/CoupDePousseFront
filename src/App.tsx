@@ -1,4 +1,4 @@
-import React from 'react';import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';
 import AppBar from './app/features/appbar/AppBar';
 import Dashboard from './app/features/dashboard/Dashboard';
@@ -35,16 +35,16 @@ function App() {
                 <UpdateProfile/>
               </PrivateRoute>
             }/>
-            {/* <Route path="/login" element={
-                // <PublicOnlyRoute>
-                //   <Login />
-                // </PublicOnlyRoute> 
-              }/> */}
-              {/* <Route path="/signup" element={
+            <Route path="/login" element={
+                <PublicOnlyRoute>
+                  <Login />
+                </PublicOnlyRoute> 
+              }/>
+              <Route path="/signup" element={
                 <PublicOnlyRoute>
                   <Signup />
                 </PublicOnlyRoute> 
-              }/> */}
+              }/>
           </Route>
         </Routes>
       </main>
