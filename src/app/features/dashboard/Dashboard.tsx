@@ -9,7 +9,7 @@ function Dashboard() {
   return (
     <section>
       <h1>Dashboard</h1>
-      {/* <ul> 
+      <ul> 
         <li>Current User
           <ul>
             <li>Id: {currentUser?.id}</li>
@@ -19,7 +19,7 @@ function Dashboard() {
         </li>
         <li>Access Token: {accessToken}</li>
         <li>Refresh Token: {refreshToken}</li>
-      </ul> */}
+      </ul>
     </section>
   )
 }
