@@ -23,6 +23,6 @@ module.exports = {
     "rules": {
     // suppress errors for missing 'import React' in files
     "react/react-in-jsx-scope": "off",
-    // "@typescript-eslint/no-explicit-any": "off"
+    "@typescript-eslint/no-explicit-any": "off"
     }
 }
