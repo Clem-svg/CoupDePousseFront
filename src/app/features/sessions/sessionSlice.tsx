@@ -32,16 +32,9 @@ interface AuthState {
   refreshToken?: string | null;
   expiresIn?: number;
   tokenType?: string;
-<<<<<<< HEAD
   currentRoute?: string;
 }
 
-=======
-}
-
-
-
->>>>>>> 8b8d4e0bdd9f7549fcd4a3db6f47fd0e2cae99ea
 const initialState: AuthState = {
   currentUser: { 
     id: undefined,
@@ -212,10 +205,6 @@ export const sessionSlice = createSlice({
         state.loading = false;
         state.error = true;
         state.errorMessages = action.payload.errors;
-<<<<<<< HEAD
-=======
-
->>>>>>> 8b8d4e0bdd9f7549fcd4a3db6f47fd0e2cae99ea
       }).addCase(loginUser.pending, (state) => {
         state.loading = true;
         state.error = false;

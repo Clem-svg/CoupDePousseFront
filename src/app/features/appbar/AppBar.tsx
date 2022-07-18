@@ -14,10 +14,6 @@ import MenuItem from '@mui/material/MenuItem';
 import { To, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../store';
-<<<<<<< HEAD
-
-=======
->>>>>>> 8b8d4e0bdd9f7549fcd4a3db6f47fd0e2cae99ea
 
 const pages = ['Products', 'Pricing', 'Blog'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
