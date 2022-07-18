@@ -7,6 +7,7 @@ import { RootState } from "../../store";
 import { loginUser, resetErrorState } from "./sessionSlice";
 
 
+
 function Login() {
   const emailRef = useRef<HTMLInputElement>();
   const passwordRef = useRef<HTMLInputElement>();
@@ -61,12 +62,12 @@ function Login() {
 
   return (
     <section style={{marginTop:"2em"}}>
-      <Container maxWidth="md">
-        <Card sx={{boxShadow:1, maxWidth: 'md'}}>
+      <Container sx={{ border: 'none' }} maxWidth="md">
+        <Card style={{ border: "none", boxShadow: "none" }} sx={{ maxWidth: 'md'}}>
           <CardContent>
             <Container maxWidth="sm">
               <Typography variant="h2" color="text.primary" gutterBottom>
-                Login
+                Connexion
               </Typography>
               {errors.length > 0 ?
                 <Alert severity="error" aria-live="assertive">
@@ -80,36 +81,34 @@ function Login() {
               <form onSubmit={handleSubmit}>
                 <FormGroup row={true} id="email-group" sx={{marginTop: "1em"}}>
                   <FormControl fullWidth>
-                    <InputLabel required htmlFor="email" id="email-label">Email Address</InputLabel>
+                    <InputLabel required htmlFor="email" id="email-label">Adresse mail</InputLabel>
                     <Input id="email" type="email" inputRef={emailRef}/>
                   </FormControl>
                 </FormGroup>
                 <FormGroup row={true} id="password-group" sx={{marginTop: "1em"}}>
                   <FormControl fullWidth>
-                    <InputLabel required htmlFor="password" id="password-label">Password</InputLabel>
+                    <InputLabel required htmlFor="password" id="password-label">Mot de passe</InputLabel>
                     {passwordInput}
                   </FormControl>
                 </FormGroup>
                 <FormGroup row={true} id="submit-group" sx={{marginTop: "1em"}}>
                   <FormControl fullWidth>
                     <Button 
+                      sx={{ backgroundColor: "primary.light" }}
                       disabled={loading} 
                       variant="contained" 
-                      color="primary" 
                       type="submit" 
-                      id="submit-button">Login</Button>
+                      id="submit-button">Se connecter
+                      </Button>
                   </FormControl>
                 </FormGroup>
               </form>
+            <Divider sx={{marginTop: "2em"}} light={true} />
             </Container>
           </CardContent>
-          <Divider light={false} />
-          <CardActions sx={{marginTop: "1em", justifyContent: 'center' }} disableSpacing >
+          <CardActions sx={{marginBottom: "1em", justifyContent: 'center' }} disableSpacing >
             <Box>
-              <Typography variant="body2" color="text.secondary" align="center">
-                  <Link to="/forgot-password">Forgot Password?</Link>
-              </Typography>
-              <Link to="/signup">Create an Account!</Link>
+              <Link to="/signup">S&apos;enregistrer</Link>
             </Box>
           </CardActions>
         </Card>

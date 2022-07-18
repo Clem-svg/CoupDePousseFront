@@ -1,21 +1,25 @@
 import React from 'react'
-import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { Navigate, useLocation } from 'react-router-dom';
+import { RootState } from '../../store';
+import LoadingGif from '../loading/LoadingGif';
 
-function PrivateRoute({ children} : any) {
-  const accessToken = true;
-  const loading = false;
-  const navigate = useNavigate();
-  
+function PrivateRoute({ children  } : any ) {
+  const loading = useSelector((state: RootState) => state.session.loading);
+  const accessToken = useSelector((state : RootState) => state.session.accessToken);
+  const location = useLocation();
+  const fromLocation = (location.state as any)?.from;
+  const previousLocation = fromLocation ? fromLocation : { pathname: '/login'};
+
   if (accessToken) {
-    return children;
+      return children;
   } else if (loading) {
-    return <p>Loading...</p>
+      return <LoadingGif/>;
   } else if (!accessToken && !loading) {
-    navigate("/login");
+    return <Navigate to={previousLocation} state={{from: location}} replace/>;
   } else {
-    return <p>Erreur</p>
+      return <p>Erreur...</p>;
   }
-
 }
 
 export default PrivateRoute

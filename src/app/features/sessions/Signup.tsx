@@ -35,11 +35,11 @@ function Signup() {
       || passwordRef?.current === undefined
       || passwordRef.current.value === ""
       || passwordConfirmationRef?.current === undefined
-      || passwordConfirmationRef.current.value === "") {
-      return setErrors(["Please fill out all fields"])
+          || passwordConfirmationRef.current.value === "") {
+      return setErrors(["Tous les champs sont obligatoires"])
     }
     if (passwordRef.current.value !== passwordConfirmationRef.current.value) {
-      return setErrors(["Passwords do not match"])
+      return setErrors(["Le mot de passe et la confirmation ne correspondent pas"])
     }
     const payload = {
       email: emailRef.current.value,
@@ -81,12 +81,12 @@ function Signup() {
 
   return (
     <section style={{marginTop:"2em"}}>
-      <Container maxWidth="md">
-        <Card sx={{boxShadow:1, maxWidth: 'md'}}>
+      <Container sx={{ border: 'none' }} maxWidth="md">
+      <Card style={{ border: "none", boxShadow: "none" }} sx={{ maxWidth: 'md'}}>
           <CardContent>
             <Container maxWidth="sm">
               <Typography variant="h2" color="text.primary" gutterBottom>
-                Sign Up
+                Création de compte
               </Typography>
               {errors.length > 0 ?
                 <Alert severity="error" aria-live="assertive">
@@ -100,40 +100,40 @@ function Signup() {
               <form onSubmit={handleSubmit}>
                 <FormGroup row={true} id="email-group" sx={{marginTop: "1em"}}>
                   <FormControl fullWidth>
-                    <InputLabel required htmlFor="email" id="email-label">Email Address</InputLabel>
+                    <InputLabel required htmlFor="email" id="email-label">Adresse mail</InputLabel>
                     <Input id="email" type="email" inputRef={emailRef}/>
-                    <FormHelperText id="email-helper-text">We&apos;ll never share your email.</FormHelperText>
                   </FormControl>
                 </FormGroup>
                 <FormGroup row={true} id="password-group" sx={{marginTop: "1em"}}>
                   <FormControl fullWidth>
-                    <InputLabel required htmlFor="password" id="password-label">Password</InputLabel>
+                    <InputLabel required htmlFor="password" id="password-label">Mot de passe</InputLabel>
                     {passwordInput}
                   </FormControl>
                 </FormGroup>
                 <FormGroup row={true} id="password-confirmation-group" sx={{marginTop: "1em"}}>
                   <FormControl fullWidth>
-                    <InputLabel required htmlFor="password-confirmation" id="password-confirmation-label">Password Confirmation</InputLabel>
+                    <InputLabel required htmlFor="password-confirmation" id="password-confirmation-label">Mot de passe confirmation</InputLabel>
                     {passwordConfirmationInput}
                   </FormControl>
                 </FormGroup>
                 <FormGroup row={true} id="submit-group" sx={{marginTop: "1em"}}>
                   <FormControl fullWidth>
                     <Button 
+                      sx={{ backgroundColor: "primary.light" }}                    
                       disabled={loading} 
                       variant="contained" 
                       color="primary" 
                       type="submit" 
-                      id="submit-button">Create Account</Button>
+                      id="submit-button">S&apos;enregistrer</Button>
                   </FormControl>
                 </FormGroup>
               </form>
+              <Divider sx={{marginTop: "2em"}} light={true} />
             </Container>
           </CardContent>
-          <Divider light={false} />
-          <CardActions sx={{marginTop: "1em", justifyContent: 'center' }} disableSpacing >
+          <CardActions sx={{marginBottom: "1em", justifyContent: 'center' }} disableSpacing >
             <Box>
-              Already have an account? <Link to="/login">Login!</Link>
+            Déjà membre ? <Link to="/login">Connection</Link>
             </Box>
           </CardActions>
         </Card>

@@ -1,21 +1,28 @@
 import React from 'react'
-import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { Navigate, useLocation } from 'react-router-dom';
+import { RootState } from '../../store';
+import LoadingGif from '../loading/LoadingGif';
 
-function PublicOnlyRoute({ children} : any) {
-  const accessToken = true;
-  const loading = false;
-  const navigate = useNavigate();
-  
-  if (!accessToken && !loading){
-    return children;
+
+function PublicOnlyRoute({ children  } : any) {
+  const accessToken = useSelector((state : RootState) => state.session.accessToken); 
+  const loading = useSelector((state : RootState) => state.session.loading);
+
+  const location = useLocation();
+  const fromLocation = (location.state as any)?.from;
+  const previousLocation = fromLocation ? fromLocation : { pathname: '/'};
+
+  if (!accessToken && !loading) {
+      return children;
   } else if (loading) {
-    return <p>Loading...</p>
-  } else if (accessToken && !loading) {
-    navigate("/login");
-  } else {
-    return <p>Erreur</p>
-  }
+      return <LoadingGif/>
 
+  } else if (accessToken && !loading) {
+    return <Navigate to={previousLocation} state={{from: location}} replace/>;
+  } else {
+      return <p>Erreur</p>;
+  }
 }
 
 export default PublicOnlyRoute
