@@ -14,7 +14,10 @@ import MenuItem from '@mui/material/MenuItem';
 import { To, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../store';
+<<<<<<< HEAD
 
+=======
+>>>>>>> 8b8d4e0bdd9f7549fcd4a3db6f47fd0e2cae99ea
 
 const pages = ['Products', 'Pricing', 'Blog'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
@@ -67,7 +70,7 @@ const ResponsiveAppBar = () => {
       <Typography marginRight={2} marginTop={1} textAlign="center">{currentUser?.email}</Typography>
       <Tooltip title="Open settings">
         <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-          <Avatar alt="test" src="/static/images/avatar/2.jpg" />
+          <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
         </IconButton>
       </Tooltip>
     </Box>
