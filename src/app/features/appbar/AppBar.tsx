@@ -16,7 +16,6 @@ import { useSelector } from 'react-redux';
 import { RootState } from '../../store';
 
 const pages = ['Products', 'Pricing', 'Blog'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 const ResponsiveAppBar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
@@ -64,9 +63,9 @@ const ResponsiveAppBar = () => {
     sessionLinks = <Box sx={{ flexGrow: 0 }}>
     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
       <Typography marginRight={2} marginTop={1} textAlign="center">{currentUser?.email}</Typography>
-      <Tooltip title="Open settings">
+      <Tooltip title="Options">
         <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-          <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+        <Avatar sx={{ backgroundColor: "primary.light" }}>{(currentUser?.email|| '').charAt(0).toUpperCase() }</Avatar>
         </IconButton>
       </Tooltip>
     </Box>
