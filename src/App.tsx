@@ -3,6 +3,8 @@ import './App.css';
 import { CssBaseline, GlobalStyles } from "@mui/material";
 import AppBar from './app/features/appbar/AppBar';
 import Dashboard from './app/features/dashboard/Dashboard';
+import Gardens from './app/features/gardens/Gardens';
+
 import PrivateRoute from './app/features/routes/PrivateRoute';
 import PublicOnlyRoute from './app/features/routes/PublicOnlyRoute';
 import Login from './app/features/sessions/Login';
@@ -27,6 +29,21 @@ function App() {
         light: '#ef9a9a',
         contrastText: '#fbfbfb',
       },
+      info: {
+        main: "#02c6f3",
+      },
+  
+      success: {
+        main: "#17ad37",
+      },
+  
+      warning: {
+        main: "#f53939",
+      },
+  
+      error: {
+        main: "#ea0606",
+      },
     },
     shape: {
       borderRadius: 4,
@@ -48,12 +65,26 @@ function App() {
       },
     },
   });
+
+  theme.typography.h2 = {
+    fontSize: '1.2rem',
+    '@media (min-width:600px)': {
+      fontSize: '1.5rem',
+    },
+    [theme.breakpoints.up('xl')]: {
+      fontSize: '2rem',
+    },
+  };
+
+  
+
+
   return (
     <ThemeProvider theme={theme}>
             <CssBaseline />
             <GlobalStyles
           styles={{
-            body: { backgroundColor: "#FFF" },
+            body: { backgroundColor: "#f8f9fa" },
           }}/>
 
       <div className="App">
@@ -66,7 +97,7 @@ function App() {
             <Route element={<PersistLogin />}>
               <Route path="/" element={
                 <PrivateRoute>
-                  <Dashboard />
+                  <Gardens/>
                 </PrivateRoute>
               } />
               <Route path="/logout" element={

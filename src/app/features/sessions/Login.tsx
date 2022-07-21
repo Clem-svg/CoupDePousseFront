@@ -63,7 +63,7 @@ function Login() {
   return (
     <section style={{marginTop:"2em"}}>
       <Container sx={{ border: 'none' }} maxWidth="md">
-        <Card style={{ border: "none", boxShadow: "none" }} sx={{ maxWidth: 'md'}}>
+        <Card style={{ border: "none", boxShadow: "none" }} sx={{ maxWidth: 'md', backgroundColor:"transparent"}}>
           <CardContent>
             <Container maxWidth="sm">
               <Typography variant="h2" color="text.primary" gutterBottom>
