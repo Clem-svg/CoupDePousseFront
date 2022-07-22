@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { Outlet } from 'react-router-dom';
 import { RootState } from '../../store';
-import LoadingGif from '../loading/LoadingGif';
+import LoadingGif from '../components/LoadingGif';
 import { refreshAccessToken } from './sessionSlice';
 
 function PersistLogin() {

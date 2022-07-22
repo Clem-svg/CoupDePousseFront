@@ -1,11 +1,10 @@
 /* eslint-disable react/jsx-key */
 import { useState, useEffect } from "react";
-import axios from "../api/axios";
 import React from "react";
-import { Container, Typography, Grid } from "@mui/material";
-import GardenCard from "../components/GardenCard";
-import { LoadingGif } from "../loading/LoadingGif";
-const GARDEN_API_URL = "/gardens/";
+import { Grid } from "@mui/material";
+import { LoadingGif } from "../features/components/LoadingGif";
+import GardenCard from "../features/components/GardenCard";
+import { getAllGardens } from "../api/gardenAPI";
 
 function Dashboard() {
   const [errorMessage, setErrorMessage] = useState("");
@@ -23,26 +22,15 @@ function Dashboard() {
     })();
   }, []);
 
-  async function getAllGardens() {
-    return axios
-      .get(GARDEN_API_URL)
-      .then((response: any) => {
-        console.log(response.data);
-        return response.data;
-      })
-      .catch((error: any) => {
-        return error.response.data;
-      });
-  }
-
   return (
     <section>
       {isLoading && 
       <LoadingGif />
       }
-      <Typography variant="h2" component="h2" sx={{ padding: 2 }}>
+      {/* <Typography variant="h2" component="h2" sx={{ padding: 2 }}>
         Mon espace
-      </Typography>
+      </Typography> */}
+      
       <Grid
         container
         spacing={2}

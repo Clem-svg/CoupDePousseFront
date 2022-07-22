@@ -1,13 +1,6 @@
-import { useState } from "react";
+import { useSelector } from "react-redux";
+import { RootState } from "../store";
 import axios from "./axios";
-
-const GARDEN_API_URL = "/gardens/";
-
-const [errorMessage, setErrorMessage] = useState('');
-const [allGardens, setAllAllGardens] = useState([]);
-const [displayedAllGardens, setDisplayedAllGardens] = useState([]);
-const [searchInput, setSearchInput] = useState('');
-const [isLoading, setIsLoading] = useState(false);
 
 export default interface GardenInterface {
   garden: {
@@ -34,10 +27,12 @@ export default interface GardenInterface {
   };
 }
 
-export async function getOneGarden(token: string, id: number) {
+
+
+export async function getOneGarden(accessToken: any, id: string | undefined) {
     const config = {
       headers: {
-        Authorization: `Bearer ${token}`,
+        Authorization: `Bearer ${accessToken}`,
       },
     };
     return axios
@@ -51,6 +46,7 @@ export async function getOneGarden(token: string, id: number) {
   }
 
 export async function getAllGardens() {
+  const GARDEN_API_URL = "/gardens/";
   return axios
     .get(GARDEN_API_URL)
     .then((response: any) => {

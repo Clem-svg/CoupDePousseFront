@@ -2,7 +2,7 @@ import React from 'react'
 import { useSelector } from 'react-redux';
 import { Navigate, useLocation } from 'react-router-dom';
 import { RootState } from '../../store';
-import LoadingGif from '../loading/LoadingGif';
+import LoadingGif from '../components/LoadingGif';
 
 function PrivateRoute({ children  } : any ) {
   const loading = useSelector((state: RootState) => state.session.loading);
