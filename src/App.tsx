@@ -164,7 +164,6 @@ function App() {
                   }
                 />
                 <Route path="gardens">
-                    <Route index element={<Gardens />} />
                     <Route path=":id" element={<AboutPage />} />
                 </Route>
               </Route>
