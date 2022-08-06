@@ -11,8 +11,7 @@ import Logout from "./app/features/sessions/Logout";
 import PersistLogin from "./app/features/sessions/PersistLogin";
 import Signup from "./app/features/sessions/Signup";
 import UpdateProfile from "./app/features/sessions/UpdateProfile";
-import { createTheme, makeStyles, ThemeProvider } from "@mui/material/styles";
-import { Theme } from "@emotion/react";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
 import AboutPage from "./app/pages/GardenPage";
 
 function App() {

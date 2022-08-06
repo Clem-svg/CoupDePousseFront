@@ -47,7 +47,7 @@ export default class GardenCard extends React.Component<GardenInterface, {}> {
                 </Typography>
               </CardContent>
 
-              <Button size="small" component={Link} to={`gardens/${garden.id}`} >
+              <Button size="small" component={Link} to={`../gardens/${garden.id}`} >
                 Voir
               </Button>
             </Box>

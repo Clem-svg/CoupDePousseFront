@@ -71,7 +71,7 @@ export async function updateUserProfile(
   };
 
   return axios
-    .patch(UPDATE_PROFILE_URL, data, config)
+    .put(UPDATE_PROFILE_URL, data, config)
     .then((response: any) => {
       return response.data;
     })
