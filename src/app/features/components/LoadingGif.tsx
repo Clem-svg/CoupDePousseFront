@@ -6,7 +6,7 @@ export const LoadingGif = () => {
   return (
     <Grid container direction="column" justifyContent="center" alignItems="center">
       <Grid item xs="auto">
-        <Box
+        {/* <Box
           component="img"
           sx={{
             marginTop: "15vh",
@@ -16,7 +16,7 @@ export const LoadingGif = () => {
           }}
           alt="Chargement"
           src={gif}
-        />
+        /> */}
       </Grid>
       <Grid item xs="auto">
         <Typography color="primary" marginRight={2} marginTop={1} textAlign="center">
