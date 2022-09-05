@@ -18,9 +18,11 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
+    "checkJs": true,
     "jsx": "preserve"
   },
   "include": [
-    "src"
+    "src",
+    "index.d.ts"
   ]
 }
